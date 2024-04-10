@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Home {% endblock %}</h1>
+
+    <h2>Information</h2>
+    <row>
+        <col size="4">
+            <h3>Name</h3>
+            <p>Displays the name of the person.</p>
+        </col>
+        <col size="4">
+            <h3>Age</h3>
+            <p>Displays the age of the person.</p>
+        </col>
+        <col size="4">
+            <h3>City</h3>
+            <p>Displays the place of residence. This field is editable.</p>
+        </col>
+    </row>
+
+    <h2>Persons</h2>
+    {% for person in persons %}
+        <row>
+            <textbox-readonly id="name" label="Name" size="10">{{ person['name'] }}</textbox-readonly>
+            <textbox-readonly id="age" label="Age" size="2">{{ person['age'] }}</textbox-readonly>
+        </row>
+        <row>
+            <textbox id="city" label="City" size="12">{{ person['city'] }}</textbox>
+        </row>
+    {% endfor %}
+    
+{% endblock %}

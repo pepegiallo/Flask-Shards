@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Home {% endblock %}</h1>
+
+    <h2>Information</h2>
+    <div class="row mb-3">
+        
+        <div class="col-4">
+        
+            <h3>Name</h3>
+            <p>Displays the name of the person.</p>
+        
+    </div>
+        <div class="col-4">
+        
+            <h3>Age</h3>
+            <p>Displays the age of the person.</p>
+        
+    </div>
+        <div class="col-4">
+        
+            <h3>City</h3>
+            <p>Displays the place of residence. This field is editable.</p>
+        
+    </div>
+    
+    </div>
+
+    <h2>Persons</h2>
+    {% for person in persons %}
+        <div class="row mb-3">
+        
+            <div class="col-10">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" value="{{ person['name'] }}" disabled>
+    </div>
+            <div class="col-2">
+        <label for="age" class="form-label">Age</label>
+        <input type="text" class="form-control" id="age" value="{{ person['age'] }}" disabled>
+    </div>
+        
+    </div>
+        <div class="row mb-3">
+        
+            <div class="col-12">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" value="{{ person['city'] }}">
+    </div>
+        
+    </div>
+    {% endfor %}
+    
+{% endblock %}
